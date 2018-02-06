@@ -19,7 +19,7 @@ def _find_overlap(point1, len1, point2, len2):
     return (heighest_start, overlap)
 
 
-def rectange_intersection(rect1, rect2):
+def rectangle_intersection(rect1, rect2):
 
     y_start, y_overlap = _find_overlap(rect1['bottom_y'], rect1['width'], rect2['bottom_y'], rect2['width'])
     x_start, x_overlap = _find_overlap(rect1['left_x'], rect1['height'], rect2['left_x'], rect2['height'])  
@@ -59,4 +59,4 @@ if __name__ == '__main__':
         'height': 6,
     }
 
-    print(rectange_intersection(rect1, rect2))
+    print(rectangle_intersection(rect1, rect2))
