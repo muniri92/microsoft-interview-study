@@ -9,6 +9,13 @@ Let's say our Fibonacci series is 0-indexed and starts with 0.
 def fib(n):
     if n in [0, 1]:
         return n
+    
+    memo = {}
+
+    if memo.contains(n):
+        return memo[n]
+
+    
 
     return fib(n-1) + fib(n-2)
 
