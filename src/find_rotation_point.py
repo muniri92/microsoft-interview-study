@@ -41,7 +41,7 @@ def find_rotation_point(lst):
             return end_point
 
 
-if __name__ = __main__:
+if __name__ == '__main__':
     perfect_list = ['asymptote', 'babka', 'banoffee', 'engender', 'karpatka', 'othellolagkage', 'ptolemaic', 'retrograde', 'supplant', 'undulate', 'xenoepist']
     odd_list = ['othellolagkage', 'ptolemaic', 'retrograde', 'supplant', 'undulate', 'xenoepist', 'z', 'asymptote', 'babka', 'banoffee', 'engender', 'karpatka']
     even_list = ['othellolagkage', 'ptolemaic', 'retrograde', 'supplant', 'undulate', 'xenoepist','asymptote', 'babka', 'banoffee', 'engender']
@@ -51,5 +51,5 @@ if __name__ = __main__:
     print(find_rotation_point(odd_list)) # 7
     print(find_rotation_point(even_list)) # 6
     print(find_rotation_point(empty_list)) # 0
-    
+
 
