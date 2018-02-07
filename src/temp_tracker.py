@@ -21,12 +21,21 @@ class TempTracker(object):
         self.temp_min = 0
         self.temp_max = 0
         self.temp_total = 0.0
-        self.temp_mode = 0
+        self.mode = None
+        self.mean = None
         self.size = 0
+        self.seen = [0] * 111
+        self.max_seen = 0
     
     def insert(self, val):
         if not isinstance(val, int):
             return None
+        
+        # gotta fix this
+        self.seen[val] += 1
+        if self.seen[val] > self.max_seen:
+            self.mode = val
+            self.max_seen = self.seen[val]
 
         if self.size == 0:
             self.temp_min = val
@@ -35,6 +44,7 @@ class TempTracker(object):
         self.temp_list.append(val)
         self.temp_total += val
         self.size += 1
+        self.mean = self.temp_total / self.size
 
         # check for new max
         if self.temp_max < val:
@@ -43,7 +53,7 @@ class TempTracker(object):
         # check for new min
         if self.temp_min > val:
             self.temp_min = val
-
+        
     def get_max(self):
         return self.temp_max
 
@@ -51,8 +61,7 @@ class TempTracker(object):
         return self.temp_min
 
     def get_mean(self):
-        return self.temp_total / self.size
+        return self.mean
     
     def get_mode(self):
-        pass
-        # return 
+        return self.mode
